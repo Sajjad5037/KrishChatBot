@@ -176,7 +176,12 @@ const handleLogin = async () => {
           setIsLoggedIn(true);
           setDoctorData(verifyData.user);
           setSessionToken(null); // or generate/manage session token here
-          navigate("/ChatBot");
+          
+          if (verifyData.user.class_name === "Admin") {
+            navigate("/AdminPanel");
+          } else {
+            navigate("/ChatBot");
+          }
         } else {
           console.warn("[WARN] OTP verification failed:", verifyData);
           setError(verifyData.detail || "Invalid OTP");
