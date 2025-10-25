@@ -166,7 +166,7 @@ const handleLogin = async () => {
           setDoctorData(verifyData.user);
           setSessionToken(null); // or generate/manage session token here
           
-          if (verifyData.user.class_name === "Admin") {
+          if (verifyData.user.name === "Admin") {
             navigate("/AdminPanel");
           } else {
             navigate("/ChatBot");
